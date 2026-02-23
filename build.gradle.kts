@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "com.pulse"
-version = "2.3.2"
+version = "2.3.3"
 
 repositories {
     mavenCentral()
@@ -21,7 +21,7 @@ dependencies {
     compileOnly("dev.jorel:commandapi-paper-shade:11.1.0")
     compileOnly("com.tcoded:FoliaLib:0.5.1")
     compileOnly("net.luckperms:api:5.5")
-    compileOnly("com.github.justorl:NexoForge:0.1.0")
+    compileOnly("com.github.justorl:NexoForge:0.3.0")
     compileOnly("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     compileOnly("com.nexomc:nexo:1.19.1")
     implementation("io.github.classgraph:classgraph:4.8.180")
