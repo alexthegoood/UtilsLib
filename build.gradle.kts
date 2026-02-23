@@ -5,13 +5,14 @@ plugins {
 }
 
 group = "com.pulse"
-version = "2.3.1"
+version = "2.3.2"
 
 repositories {
     mavenCentral()
     maven("https://repo.papermc.io/repository/maven-public/") { name = "papermc-repo" }
     maven("https://repo.tcoded.com/releases") { name = "tcoded" }
     maven("https://jitpack.io")
+    maven("https://repo.nexomc.com/releases")
 }
 
 dependencies {
@@ -22,6 +23,7 @@ dependencies {
     compileOnly("net.luckperms:api:5.5")
     compileOnly("com.github.justorl:NexoForge:0.1.0")
     compileOnly("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+    compileOnly("com.nexomc:nexo:1.19.1")
     implementation("io.github.classgraph:classgraph:4.8.180")
 }
 

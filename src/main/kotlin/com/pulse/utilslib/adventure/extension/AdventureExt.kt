@@ -64,7 +64,7 @@ fun createTitle(
     title: Component,
     subtitle: Component,
     fadeIn: Long,
-    stay: Long, 
+    stay: Long,
     fadeOut: Long
 ): Title =
     Title.title(
