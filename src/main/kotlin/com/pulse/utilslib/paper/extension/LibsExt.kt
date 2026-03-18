@@ -20,5 +20,8 @@ fun hasClassGraph(): Boolean =
 fun hasNexoForge(): Boolean =
     classExists("com.pulse.nexoforge.NexoForge")
 
+fun hasCoreProtect(): Boolean =
+    classExists("net.coreprotect.CoreProtectAPI")
+
 fun isFolia() : Boolean =
     classExists("io.papermc.paper.threadedregions.scheduler.RegionScheduler")
