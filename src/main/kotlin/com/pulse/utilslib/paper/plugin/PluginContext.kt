@@ -1,5 +1,6 @@
 package com.pulse.utilslib.paper.plugin
 
+import com.fren_gor.ultimateAdvancementAPI.UltimateAdvancementAPI
 import com.pulse.nexoforge.NexoForge
 import com.tcoded.folialib.FoliaLib
 import net.coreprotect.CoreProtect
@@ -10,5 +11,6 @@ object PluginContext {
     lateinit var scoreboardLib: ScoreboardLibrary
     lateinit var nexoForge: NexoForge
     lateinit var coreProtect: CoreProtect
+    lateinit var uAPI: UltimateAdvancementAPI
     lateinit var plugin: PaperPlugin
 }

@@ -1,5 +1,6 @@
 package com.pulse.utilslib.paper.plugin
 
+import com.fren_gor.ultimateAdvancementAPI.UltimateAdvancementAPI
 import com.pulse.nexoforge.NexoForge
 import com.pulse.utilslib.nexoforge.NexoItemsScanner
 import com.pulse.utilslib.paper.command.CommandScanner
@@ -8,6 +9,7 @@ import com.pulse.utilslib.paper.extension.hasCoreProtect
 import com.pulse.utilslib.paper.extension.hasFoliaLib
 import com.pulse.utilslib.paper.extension.hasNexoForge
 import com.pulse.utilslib.paper.extension.hasScoreboardLib
+import com.pulse.utilslib.paper.extension.hasUltimateAdvancementAPI
 import com.pulse.utilslib.paper.listener.ListenerScanner
 import com.tcoded.folialib.FoliaLib
 import dev.jorel.commandapi.CommandAPI
@@ -81,6 +83,13 @@ abstract class PaperPlugin(
             PluginContext.coreProtect =
                 server.pluginManager.getPlugin("CoreProtect") as CoreProtect
         } else verboseLog("CoreProtect not found")
+
+        if (hasUltimateAdvancementAPI()) {
+            verboseLog("Initializing Ultimate Advancement API step 1/1")
+
+            PluginContext.uAPI =
+                UltimateAdvancementAPI.getInstance(this);
+        }
 
         verboseLog("Loading auto listeners..")
         ListenerScanner(this).apply {

@@ -21,7 +21,10 @@ fun hasNexoForge(): Boolean =
     classExists("com.pulse.nexoforge.NexoForge")
 
 fun hasCoreProtect(): Boolean =
-    classExists("net.coreprotect.CoreProtectAPI")
+    classExists("net.coreprotect.CoreProtect")
+
+fun hasUltimateAdvancementAPI(): Boolean =
+    classExists("com.fren_gor.ultimateAdvancementAPI.AdvancementPlugin")
 
 fun isFolia() : Boolean =
     classExists("io.papermc.paper.threadedregions.scheduler.RegionScheduler")

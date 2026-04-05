@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "com.pulse"
-version = "2.3.8"
+version = "2.3.9"
 
 repositories {
     mavenCentral()
@@ -14,6 +14,7 @@ repositories {
     maven("https://jitpack.io")
     maven("https://repo.nexomc.com/releases")
     maven("https://maven.playpro.com")
+    maven("https://nexus.frengor.com/repository/public/")
 }
 
 dependencies {
@@ -26,6 +27,7 @@ dependencies {
     compileOnly("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     compileOnly("com.nexomc:nexo:1.19.1")
     compileOnly("net.coreprotect:coreprotect:23.1")
+    compileOnly("com.frengor:ultimateadvancementapi:2.7.1")
     implementation("io.github.classgraph:classgraph:4.8.180")
 }
 
