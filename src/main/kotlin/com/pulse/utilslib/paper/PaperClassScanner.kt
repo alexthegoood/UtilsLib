@@ -2,17 +2,16 @@ package com.pulse.utilslib.paper
 
 import com.pulse.utilslib.paper.extension.hasClassGraph
 import com.pulse.utilslib.paper.plugin.PaperPlugin
-import com.pulse.utilslib.paper.plugin.PluginContext
 import io.github.classgraph.ClassGraph
 import kotlin.reflect.KClass
 
 abstract class PaperClassScanner<T: Any>(
     private val plugin: PaperPlugin,
-    private val baseClass: KClass<T>
+    private val baseClass: KClass<T>,
+    protected val verbose: Boolean = false
 ) {
     abstract val name: String
 
-    protected val verbose = PluginContext.plugin.verboseOutput
     protected val id = plugin.id
 
     protected abstract fun handle(instance: T): Boolean

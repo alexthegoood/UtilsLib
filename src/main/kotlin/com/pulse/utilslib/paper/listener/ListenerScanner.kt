@@ -7,8 +7,9 @@ import com.pulse.utilslib.paper.plugin.PluginContext.plugin
 import org.bukkit.Bukkit
 
 class ListenerScanner(
-    plugin: PaperPlugin
-) : PaperClassScanner<AutoListener>(plugin, AutoListener::class) {
+    plugin: PaperPlugin,
+    verbose: Boolean = false
+) : PaperClassScanner<AutoListener>(plugin, AutoListener::class, verbose) {
 
     override val name = "listeners"
 

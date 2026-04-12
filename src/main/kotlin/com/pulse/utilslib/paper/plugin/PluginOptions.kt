@@ -16,7 +16,7 @@ data class CommandAPIOptions(
 )
 
 data class PluginOptions(
-    val verboseOutput: Boolean = false,
+    val verbose: Boolean = false,
     val foliaLibOptions: FoliaLibOptions = FoliaLibOptions(),
-    val commandApiOptions: CommandAPIOptions = CommandAPIOptions(verboseOutput = verboseOutput),
+    val commandApiOptions: CommandAPIOptions = CommandAPIOptions(verboseOutput = verbose),
 )

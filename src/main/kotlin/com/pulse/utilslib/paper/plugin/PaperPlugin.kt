@@ -20,7 +20,7 @@ import org.bukkit.plugin.java.JavaPlugin
 
 abstract class PaperPlugin(
     val id: String,
-    private val pluginOptions: PluginOptions,
+    private val pluginOptions: PluginOptions = PluginOptions(),
 ) : JavaPlugin() {
 
     open fun load() {}
@@ -103,20 +103,20 @@ abstract class PaperPlugin(
         }
 
         verboseLog("Loading auto listeners..")
-        ListenerScanner(this).apply {
+        ListenerScanner(this, pluginOptions.verbose).apply {
             load("com.pulse.utilslib.paper.listener.builtin")
             load()
         }
 
         if (hasCommandApi()) {
             verboseLog("Loading auto commands..")
-            CommandScanner(this)
+            CommandScanner(this, pluginOptions.verbose)
                 .load()
         }
 
         if (hasNexoForge()) {
             verboseLog("Loading auto nexo items..")
-            NexoItemsScanner(this)
+            NexoItemsScanner(this, pluginOptions.verbose)
                 .load()
         }
 
@@ -131,6 +131,6 @@ abstract class PaperPlugin(
     }
 
     private fun verboseLog(message: String) {
-        if (pluginOptions.verboseOutput) logger.info("[$id - UtilsLib] $message")
+        if (pluginOptions.verbose) logger.info("[$id - UtilsLib] $message")
     }
 }

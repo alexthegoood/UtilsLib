@@ -5,8 +5,9 @@ import com.pulse.utilslib.paper.PaperClassScanner
 import com.pulse.utilslib.paper.plugin.PaperPlugin
 
 class NexoItemsScanner(
-    plugin: PaperPlugin
-) : PaperClassScanner<AutoNexoItems>(plugin, AutoNexoItems::class) {
+    plugin: PaperPlugin,
+    verbose: Boolean = false
+) : PaperClassScanner<AutoNexoItems>(plugin, AutoNexoItems::class, verbose) {
 
     override val name = "nexo forge items"
 

@@ -2,16 +2,39 @@ package com.pulse.utilslib.paper.extension
 
 import com.pulse.utilslib.paper.plugin.PluginContext
 import org.bukkit.Bukkit
+import org.bukkit.plugin.Plugin
 import org.bukkit.scheduler.BukkitRunnable
 import org.bukkit.scheduler.BukkitTask
 
-fun runLater(delay: Long, task: () -> Unit): BukkitTask =
-    Bukkit.getScheduler().runTaskLater(PluginContext.plugin, task, delay)
 
-fun runLaterAsync(delay: Long, task: () -> Unit): BukkitTask =
-    Bukkit.getScheduler().runTaskLaterAsynchronously(PluginContext.plugin, task, delay)
+fun runTask(
+    plugin: Plugin = PluginContext.plugin,
+    task: () -> Unit
+): BukkitTask =
+    Bukkit.getScheduler().runTask(plugin, task)
 
-fun runTimer(delay: Long, period: Long, task: BukkitRunnable.() -> Unit): BukkitRunnable {
+fun runTaskAsync(
+    plugin: Plugin = PluginContext.plugin,
+    task: () -> Unit
+): BukkitTask =
+    Bukkit.getScheduler().runTaskAsynchronously(plugin, task)
+
+
+fun runLater(
+    delay: Long,
+    plugin: Plugin = PluginContext.plugin,
+    task: () -> Unit
+): BukkitTask =
+    Bukkit.getScheduler().runTaskLater(plugin, task, delay)
+
+fun runLaterAsync(
+    delay: Long,
+    plugin: Plugin = PluginContext.plugin,
+    task: () -> Unit
+): BukkitTask =
+    Bukkit.getScheduler().runTaskLaterAsynchronously(plugin, task, delay)
+
+fun runTimer(delay: Long, period: Long, plugin: Plugin = PluginContext.plugin, task: BukkitRunnable.() -> Unit): BukkitRunnable {
     val timer = object : BukkitRunnable() {
         override fun run() {
             task()
@@ -19,7 +42,7 @@ fun runTimer(delay: Long, period: Long, task: BukkitRunnable.() -> Unit): Bukkit
     }
 
     timer.runTaskTimer(
-        PluginContext.plugin,
+        plugin,
         delay,
         period
     )
@@ -27,7 +50,7 @@ fun runTimer(delay: Long, period: Long, task: BukkitRunnable.() -> Unit): Bukkit
     return timer
 }
 
-fun runTimerAsync(delay: Long, period: Long, task: BukkitRunnable.() -> Unit): BukkitRunnable {
+fun runTimerAsync(delay: Long, period: Long, plugin: Plugin = PluginContext.plugin, task: BukkitRunnable.() -> Unit): BukkitRunnable {
     val timer = object : BukkitRunnable() {
         override fun run() {
             task()
@@ -35,7 +58,7 @@ fun runTimerAsync(delay: Long, period: Long, task: BukkitRunnable.() -> Unit): B
     }
 
     timer.runTaskTimerAsynchronously(
-        PluginContext.plugin,
+        plugin,
         delay,
         period
     )
